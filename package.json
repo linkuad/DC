@@ -1,0 +1,30 @@
+{
+  "name": "Dev-connection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concat-stream": "^2.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.7",
+    "npm": "^6.14.9",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://7bdd1b1f9120c244cf65bc5623956b34a4e3542b@github.com/linkuad/Dev-connection.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linkuad/Dev-connection/issues"
+  },
+  "homepage": "https://github.com/linkuad/Dev-connection#readme"
+}
