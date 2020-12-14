@@ -46,9 +46,12 @@ header .header{
 }
 #content .container{
     min-height:600px;
-    max-height:calc(960px - 76px);
-    height:calc(100vh - 76px);
+    height:100vh;
 }
+#content .container:nth-child(1){
+    height:calc(100vh - 72px);
+}
+
 footer .footer{
     height:150px;
 }
