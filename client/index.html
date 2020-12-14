@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <title>Document</title>
 </head>
@@ -21,9 +21,16 @@
     <section id='content' class='gradient_border_bottom'>
         <div class='container'>
             <div class='categoryInfo'>
-                
+                <div class='categorySelect'>
+                    <div class='categoryItems'>
+                        <div class='categoryItem'>아이템1</div>
+                        <div class='categoryItem'>아이템2</div>
+                        <div class='categoryItem'>아이템3</div>
+                        <div class='categoryItem'>아이템4</div>
+                    </div>
+                </div>
             </div>
-            <div class='categorySelect'>
+            <div class='stackSelect'>
                 <select name='Stack' id='stackSelection'>
                     <option value='javaScript' selected>select</option>
                     <option value='c#'>c#</option>
@@ -42,12 +49,28 @@
                     <div class='gradient_border_bottom'></div>
                 </div>
             </div>
+            <div class='stackInfo'>
+                <div class='stackDetail'>
+                    <div class='stackItem' style='background-color:red'>
+                        아이템1 소개
+                    </div>
+                    <div class='stackItem' style='background-color:green'>
+                        아이템2 소개
+                    </div>
+                    <div class='stackItem' style='background-color:blue'>
+                        아이템3 소개
+                    </div>
+                    <div class='stackItem' style='background-color:gray'>
+                        아이템4 소개
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <footer>
         <div class='footer'>
         </div>
     </footer>
-    <script src="js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

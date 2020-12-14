@@ -1,0 +1,191 @@
+*{
+    border:0;
+    margin:0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+    background:none;
+    color:rgb(32,34,36);
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body,html{
+    width:100%;
+    height:100%;
+    background-color:white;
+    overflow-x:hidden;
+}
+
+/*
+    main
+*/
+header, footer, #content{
+    width:100%;
+}
+header{
+    position: relative;
+    height:72px;
+    background-color:white;
+}
+footer{
+    position: relative;
+    bottom:0;
+    height:150px;
+    background-color:white;
+}
+#content{
+    position: relative;
+    height:calc(100% - 235px);
+    min-height: 600px;
+}
+header .header, #content .container, footer .footer{
+    max-width:1080px;
+    margin: 0 auto;
+}
+header .header{
+    height:72px;
+}
+#content .container{
+    height:auto;
+}
+footer .footer{
+    height:150px;
+}
+
+
+/*
+    header
+*/
+header .header{
+    display:flex;
+}
+header .nav{
+    line-height:72px;
+    width:100%;
+    overflow: auto;
+    display: flex;
+    justify-content: flex-end;
+    -ms-text-justify: flex-end;
+}
+.header .nav li{
+    text-align: center;
+    position: relative;
+    width:100px;
+}
+/*
+    content
+*/
+#content .categoryInfo{
+    margin: 0 auto;
+    width:100%;
+    height:72px;
+    background-color:#f5f5f5;
+    border:1px solid #f5f5f5;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+#content .stackSelect{
+    position: absolute;
+    height:500px;
+    width:320px;
+    background-color:#f5f5f5;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+#content select{
+    margin-top:15px;
+    height:30px;
+    font-size:20px;
+    margin-left: 10px;
+    width:300px;
+    background-color:white;
+    border-radius: 10px;
+}
+#content .searchArea{
+    bottom:50px;
+    margin-left:10px;
+    position: absolute;
+    width:300px;
+}
+#content .searchArea button, #content .searchArea input{
+    margin-top:100px;
+    position: relative;
+    height:30px;
+    line-height:30px;
+    font-size:20px;
+}
+#content .searchArea input{
+    padding-left:10px;
+    width:250px;
+}
+#content .searchArea button{
+    width:30px;
+}
+#content .stackInfo{
+    position: relative;
+    overflow: hidden;
+    background-color:green;
+    width:760px;
+    height:500px;
+    left:320px;
+}
+#content .stackInfo .stackDetail{
+    width:100%;
+    height:100%;
+    transition: 0.5s;
+    display: flex;
+}
+#content .stackInfo .stackDetail .stackItem{
+    width:100%;
+    height:100%;
+}
+#content .categoryInfo .categorySelect{
+    width:100%;
+    height:100%;
+}
+#content .categoryInfo .categorySelect .categoryItems{
+    display: flex;
+    height:100%;
+}
+#content .categoryInfo .categorySelect .categoryItems .categoryItem{
+    width:100%;
+    line-height:72px;
+    font-size:20px;
+    background-color:white;
+    cursor: pointer;
+
+    background: linear-gradient(to right, red 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right;
+}
+#content .categoryInfo .categorySelect .categoryItems .categoryItem:hover{
+    background-position: left;
+    transition: 0.5s;
+}
+
+
+button {
+    background: linear-gradient(to right, red 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right;
+}
+button:hover{
+    background-position: left;
+}
+
+
+
+
+
+
+/*
+    border
+*/
+.gradient_border_bottom{
+    border-style:solid;
+    border-width:3px;
+    border-image: linear-gradient(to right, #01c9ca 0%, #3886FF 50%,  #01c9ca 100%);
+    border-image-slice: 1;
+    border-image-width: 0 0 2px 0;
+}
