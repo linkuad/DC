@@ -26,7 +26,7 @@ const sliderBtn =_=>{
             document.querySelector('.stackDetail').style.marginLeft = '-' +(sliderSet.page * 100) + '%';
         })
         categories[i].addEventListener('mouseout', function(){
-            this.style.backgroundPosition = 'left';
+            this.style.backgroundPosition = 'right';
             this.style.transition = sliderSet.interval/1000+'s';
         })
     }
