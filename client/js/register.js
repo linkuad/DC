@@ -32,7 +32,7 @@ function showErase(ele) {
     }
 }
 
-function inputChk(ele){
+const inputChk =ele=>{
     let err = ele.parentNode.children[2];
     err.innerHTML = '';
     console.log(ele.value)
