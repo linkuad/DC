@@ -7,7 +7,7 @@ const sliderBtn = _ => {
 	
     for(let i = 0, limit = categories.length; i < limit; i++) {
         categories[i].style.transition = '0.5s';
-    }
+	}
 
     categories[0].style.backgroundPosition = 'left';
     categories[0].style.transition = sliderSet.interval/1000 + 's';
