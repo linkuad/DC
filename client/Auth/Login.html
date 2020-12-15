@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class='login-form'>
+        <div class='login-title'>
+            로그인
+        </div>
+        <form method='post' action='../Auth/loginChk.html'>
+            <div class='login text-1'>이메일</div>
+            <div class='login input'>
+                <input type='email' name='email' tabindex="1" spellcheck="false">
+                <button type='button' class='btnErase' onclick="erase(this)"><i
+                        class="fas fa-times-circle"></i></button>
+                <div class='errMsg'></div>
+            </div>
+            <div class='login text-1'>비밀번호</div>
+            <div class='login input'>
+                <input type='password' name='password' tabindex="2" minlength="8" maxlength="50">
+                <button type='button' class='btnErase' onclick="erase(this)"><i
+                        class="fas fa-times-circle"></i></button>
+                <div class='errMsg'></div>
+            </div>
+            <input type='checkbox' tabindex="3" name='chk'>
+            <div class='login text-1'>로그인 상태 유지</div>
+            <div class='input'>
+                <input type='submit' value='로그인'>
+            </div>
+            <div class='etc'>
+                <div class='login text-1 findpw'>
+                    <a href='#'>아이디</a> / <a href='#'>비밀번호</a> 를 잊으셨나요?
+                </div>
+                <div class='login text-1 register'>
+                    <a href='../Auth/Register.html'>회원가입</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>
