@@ -1,9 +1,13 @@
 window.onload =_=>{
     inputs.email.addEventListener('input', () => showErase(inputs.email))
-    //inputs.email.addEventListener('focusout', () => inputChk(inputs.email))
     inputs.nickname.addEventListener('input', () => showErase(inputs.nickname))
     inputs.password.addEventListener('input', () => showErase(inputs.password))
     inputs.password_ck.addEventListener('input', () => showErase(inputs.password_ck))
+    
+    inputs.email.addEventListener('focusout', () => inputChk(inputs.email))
+    inputs.nickname.addEventListener('focusout', () => inputChk(inputs.nickname))
+    inputs.password.addEventListener('focusout', () => inputChk(inputs.password))
+    inputs.password_ck.addEventListener('focusout', () => inputChk(inputs.password_ck))
 }
 
 
@@ -29,5 +33,28 @@ function showErase(ele) {
 }
 
 function inputChk(ele){
-    ele.parentNode.children[2].innerHTML = 'ㅇㅇ'
+    let err = ele.parentNode.children[2];
+    err.innerHTML = '';
+    console.log(ele.value)
+    if(ele == inputs.email){
+        var reg = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;;  
+        if(!reg.test(ele.value)){
+            err.innerHTML = '이메일을 잘못 입력했습니다.'
+        }
+    }else if(ele == inputs.nickname){
+        var reg = /^[가-힣|a-z|A-Z|0-9|\*]{2,12}$/;
+        console.log(reg.test(ele.value));
+        if(!reg.test(ele.value)){
+            err.innerHTML = '닉네임을 잘못 입력했습니다.'
+        }
+    }else if(ele == inputs.password){
+        var reg = /(?=.*[a-zA-Z]+)(?=.*[0-9]+)(?=.*[`~!@@#$%^&*|₩₩₩'₩";:₩/?]+).{8,20}/
+        if(!reg.test(ele.value)){
+            err.innerHTML = '비밀번호를 다시 입력해주세요.'
+        }
+    }else if(ele == inputs.password_ck){
+        if(inputs.password.value != inputs.password_ck.value){
+            err.innerHTML = '비밀번호를 다시 입력해주세요.'
+        }
+    }
 }

@@ -16,28 +16,31 @@
             회원가입
         </div>
         <form method='post' action='../Auth/RegisterChk.html'>
-            <div class='register text-1' spellcheck="false">이메일</div>
+            <div class='register text-1'>이메일</div>
             <div class='register input'>
-                <input type='email' name='email' tabindex="1">
+                <input type='email' name='email' tabindex="1" spellcheck="false">
                 <button type='button' class='btnErase' onclick="erase(this)"><i class="fas fa-times-circle"></i></button>
                 <div class='errMsg'></div>
             </div>
-            <div class='register text-1' spellcheck="false">닉네임</div>
+            <div class='register text-1'>닉네임</div>
             <div class='register input'>
-                <input type='text' name='nickname'tabindex="2" minlength="1" maxlength="12">
+                <input type='text' name='nickname' tabindex="2" minlength="1" maxlength="12" spellcheck="false">
                 <button type='button' class='btnErase' onclick="erase(this)"><i class="fas fa-times-circle"></i></button>
+                <div class='errMsg'></div>
             </div>
             <div class='register text-1'>비밀번호</div>
             <div class='register input'>
                 <input type='password' name='password' tabindex="3" minlength="8" maxlength="50">
                 <button type='button' class='btnErase' onclick="erase(this)"><i class="fas fa-times-circle"></i></button>
+                <div class='errMsg'></div>
             </div>
             <div class='register text-1'>비밀번호 확인</div>
             <div class='register input'>
                 <input type='password' name='password_ck' tabindex="4" minlength="8" maxlength="50">
                 <button type='button' class='btnErase' onclick="erase(this)"><i class="fas fa-times-circle"></i></button>
+                <div class='errMsg'></div>
             </div>
-            <input type='checkbox' tabindex="5">
+            <input type='checkbox' tabindex="5" name='chk'>
             <div class='register text-1' spellcheck="false"><a href='#' style='font-weight: bold;'>이용약관</a>에 동의합니다</div>
             <div class='rigister input'>
                 <input type='submit' value='회원가입'>
