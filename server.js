@@ -10,14 +10,17 @@ const config = require('./config/key.js')// api키 라던지 깃허브에 노출
 
 //  유저 회원 가입 and 로그인 기능먼저 / model 생성 
 
-mongoose.connect(config.mongoURI, {//connect to MongoDB
-useUnifiedTopology : true,
-useNewUrlParser : true,
-})
-.then (() => console.log ( 'DB Connected!'))
-.catch (err => {
-console.log (`DB Connection Error: ${err.message}`);
-});
+//app.use('/api/users', require('./routes/users'));
+app.use(express.static("client"));
+
+// mongoose.connect(config.mongoURI, {//connect to MongoDB
+// useUnifiedTopology : true,
+// useNewUrlParser : true,
+// })
+// .then (() => console.log ( 'DB Connected!'))
+// .catch (err => {
+// console.log (`DB Connection Error: ${err.message}`);
+// });
 
 app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname + "/client/index.html"));
