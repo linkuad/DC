@@ -15,16 +15,16 @@
         <div class='register-title'>
             회원가입
         </div>
-        <form method='post' action='../Auth/RegisterChk.html'>
+        <form method='post' action='../users/register'>
             <div class='register text-1'>이메일</div>
             <div class='register input'>
-                <input type='email' name='email' tabindex="1" spellcheck="false">
+                <input type='email' name='email' tabindex="1" spellcheck="false" autocomplete="off">
                 <button type='button' class='btnErase' onclick="erase(this)"><i class="fas fa-times-circle"></i></button>
                 <div class='errMsg'></div>
             </div>
             <div class='register text-1'>닉네임</div>
             <div class='register input'>
-                <input type='text' name='nickname' tabindex="2" minlength="1" maxlength="12" spellcheck="false">
+                <input type='text' name='nickname' tabindex="2" minlength="1" maxlength="12" spellcheck="false" autocomplete="off">
                 <button type='button' class='btnErase' onclick="erase(this)"><i class="fas fa-times-circle"></i></button>
                 <div class='errMsg'></div>
             </div>
@@ -42,9 +42,7 @@
             </div>
             <input type='checkbox' tabindex="5" name='chk'>
             <div class='register text-1'><a href='#' style='font-weight: bold;'>이용약관</a>에 동의합니다</div>
-            <div class='rigister input'>
-                <input type='submit' value='회원가입'>
-            </div>
+            <input type='submit' value='회원가입'>
         </form>
     </div>
     <script src="../js/register.js"></script>
