@@ -1,28 +1,3 @@
-const inputs = {
-    email : document.querySelector('input[name=email]'),
-    password : document.querySelector('input[name=password]'),
-}
-
-const erase = ele =>{
-    ele.parentNode.children[0].value = '';
-    ele.parentNode.children[1].style.display = 'none';
-    ele.parentNode.children[0].focus();
-    ele.parentNode.children[2].innerHTML = '';
-}
-
-const showErase =ele=> {
-    ele.parentNode.children[2].innerHTML = '';
-    if(ele.value.length > 0){
-        ele.parentNode.children[1].style.display = 'block';
-    }else{
-        ele.parentNode.children[1].style.display = 'none';
-    }
-}
-
-const focus =ele=>{
-    ele.parentNode.style.border = '1px solid #74C69D';
-}
-
 const inputValidateCheck = target => {
     const $err = target.parentNode.children[2];
     $err.innerHTML = "";
