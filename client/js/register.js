@@ -4,6 +4,7 @@ const inputValidateCheck = target => {
 	
 	if(target.name === "email") {
         const reg = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
+        
         if (!reg.test(target.value)) {
 			target.focus();
 				
