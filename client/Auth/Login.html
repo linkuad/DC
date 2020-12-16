@@ -18,7 +18,7 @@
         <form method='post' action='../Auth/loginChk.html'>
             <div class='login text-1'>이메일</div>
             <div class='login input'>
-                <input type='email' name='email' tabindex="1" spellcheck="false">
+                <input type='email' name='email' tabindex="1" spellcheck="false" autocomplete="off">
                 <button type='button' class='btnErase' onclick="erase(this)"><i
                         class="fas fa-times-circle"></i></button>
                 <div class='errMsg'></div>
@@ -32,9 +32,7 @@
             </div>
             <input type='checkbox' tabindex="3" name='chk'>
             <div class='login text-1'>로그인 상태 유지</div>
-            <div class='input'>
-                <input type='submit' value='로그인'>
-            </div>
+            <input type='submit' value='로그인'>
             <div class='etc'>
                 <div class='login text-1 findpw'>
                     <a href='#'>아이디</a> / <a href='#'>비밀번호</a> 를 잊으셨나요?
