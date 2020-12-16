@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+=======
+window.onload =_=>{
+    inputs.email.addEventListener('input', () => showErase(inputs.email))
+    inputs.nickname.addEventListener('input', () => showErase(inputs.nickname))
+    inputs.password.addEventListener('input', () => showErase(inputs.password))
+    inputs.password_ck.addEventListener('input', () => showErase(inputs.password_ck))
+    
+    inputs.email.addEventListener('focusout', () => inputChk(inputs.email))
+    inputs.nickname.addEventListener('focusout', () => inputChk(inputs.nickname))
+    inputs.password.addEventListener('focusout', () => inputChk(inputs.password))
+    inputs.password_ck.addEventListener('focusout', () => inputChk(inputs.password_ck))
+
+    inputs.email.addEventListener('focus', () => focus(inputs.email))
+    inputs.nickname.addEventListener('focus', () => focus(inputs.nickname))
+    inputs.password.addEventListener('focus', () => focus(inputs.password))
+    inputs.password_ck.addEventListener('focus', () => focus(inputs.password_ck))
+}
+
+>>>>>>> 0ff475c4065ff241b7854cbea75919149aca9f75
 const inputs = {
     email : document.querySelector('input[name=email]'),
     nickname : document.querySelector('input[name=nickname]'),
@@ -50,6 +70,7 @@ const inputChk =ele=>{
     }
     ele.parentNode.style.border = '1px solid #ddd';
 }
+<<<<<<< HEAD
 
 window.onload =_=>{
     inputs.email.addEventListener('input', () => showErase(inputs.email))
@@ -67,3 +88,5 @@ window.onload =_=>{
     inputs.password.addEventListener('focus', () => focus(inputs.password))
     inputs.password_ck.addEventListener('focus', () => focus(inputs.password_ck))
 }
+=======
+>>>>>>> 0ff475c4065ff241b7854cbea75919149aca9f75

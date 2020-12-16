@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+window.onload =_=>{
+    inputs.email.addEventListener('input', () => showErase(inputs.email))
+    inputs.password.addEventListener('input', () => showErase(inputs.password))
+    
+    inputs.email.addEventListener('focusout', () => inputChk(inputs.email))
+    inputs.password.addEventListener('focusout', () => inputChk(inputs.password))
+
+    inputs.email.addEventListener('focus', () => focus(inputs.email))
+    inputs.password.addEventListener('focus', () => focus(inputs.password))
+}
+
+>>>>>>> 0ff475c4065ff241b7854cbea75919149aca9f75
 const inputs = {
     email : document.querySelector('input[name=email]'),
     password : document.querySelector('input[name=password]'),
@@ -39,6 +53,7 @@ const inputChk =ele=>{
     }
     ele.parentNode.style.border = '1px solid #ddd';
 }
+<<<<<<< HEAD
 
 window.onload =_=>{
     inputs.email.addEventListener('input', () => showErase(inputs.email))
@@ -50,3 +65,5 @@ window.onload =_=>{
     inputs.email.addEventListener('focus', () => focus(inputs.email))
     inputs.password.addEventListener('focus', () => focus(inputs.password))
 }
+=======
+>>>>>>> 0ff475c4065ff241b7854cbea75919149aca9f75
