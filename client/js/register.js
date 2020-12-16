@@ -1,92 +1,62 @@
-<<<<<<< HEAD
-=======
-window.onload =_=>{
-    inputs.email.addEventListener('input', () => showErase(inputs.email))
-    inputs.nickname.addEventListener('input', () => showErase(inputs.nickname))
-    inputs.password.addEventListener('input', () => showErase(inputs.password))
-    inputs.password_ck.addEventListener('input', () => showErase(inputs.password_ck))
-    
-    inputs.email.addEventListener('focusout', () => inputChk(inputs.email))
-    inputs.nickname.addEventListener('focusout', () => inputChk(inputs.nickname))
-    inputs.password.addEventListener('focusout', () => inputChk(inputs.password))
-    inputs.password_ck.addEventListener('focusout', () => inputChk(inputs.password_ck))
+const inputValidateCheck = target => {
+	const $err = target.parentNode.children[2];
+    $err.innerHTML = "";
+	
+	if(target.name === "email") {
+        const reg = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
+        if (!reg.test(target.value)) {
+			target.focus();
+				
+        	return $err.innerHTML = "이메일을 잘못 입력했습니다.";
+        };
+    };
+    if(target.name === "nickname") {
+        const reg = /^[가-힣|a-z|A-Z|0-9|\*]{2,12}$/;
+				
+        if(!reg.test(target.value)) {
+			target.focus();
+					
+            return $err.innerHTML = "닉네임을 잘못 입력했습니다.";
+        };
+    };
+	if(target.name === "password") {
+        const reg = /(?=.*[a-zA-Z]+)(?=.*[0-9]+).{8,20}/;
+				
+        if (!reg.test(target.value)) {
+			target.focus();
+					
+		    return $err.innerHTML = "비밀번호는 대문자 포함하여 8자 이상 입력해야 합니다.";
+        };
+    };
+	if(target.name === "password_ck") {
+		if(document.forms[0].password.value !== target.value) {
+			target.focus();
+					
+            return $err.innerHTML = "비밀번호를 일치하지 않습니다.";
+        };
+	};
+	
+	return true;
+};
 
-    inputs.email.addEventListener('focus', () => focus(inputs.email))
-    inputs.nickname.addEventListener('focus', () => focus(inputs.nickname))
-    inputs.password.addEventListener('focus', () => focus(inputs.password))
-    inputs.password_ck.addEventListener('focus', () => focus(inputs.password_ck))
-}
-
->>>>>>> 0ff475c4065ff241b7854cbea75919149aca9f75
-const inputs = {
-    email : document.querySelector('input[name=email]'),
-    nickname : document.querySelector('input[name=nickname]'),
-    password : document.querySelector('input[name=password]'),
-    password_ck : document.querySelector('input[name=password_ck]'),
-}
-
-const erase = ele =>{
-    ele.parentNode.children[0].value = '';
-    ele.parentNode.children[1].style.display = 'none';
-    ele.parentNode.children[0].focus();
-    ele.parentNode.children[2].innerHTML = '';
-}
-
-const showErase =ele=> {
-    ele.parentNode.children[2].innerHTML = '';
-    if(ele.value.length > 0){
-        ele.parentNode.children[1].style.display = 'block';
-    }else{
-        ele.parentNode.children[1].style.display = 'none';
-    }
-}
-
-const focus =ele=>{
-    ele.parentNode.style.border = '1px solid #74C69D';
-}
-
-const inputChk =ele=>{
-    let err = ele.parentNode.children[2];
-    err.innerHTML = '';
-    if(ele == inputs.email){
-        var reg = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;;  
-        if(!reg.test(ele.value)){
-            err.innerHTML = '이메일을 잘못 입력했습니다.'
-        }
-    }else if(ele == inputs.nickname){
-        var reg = /^[가-힣|a-z|A-Z|0-9|\*]{2,12}$/;
-        if(!reg.test(ele.value)){
-            err.innerHTML = '닉네임을 잘못 입력했습니다.'
-        }
-    }else if(ele == inputs.password){
-        var reg = /(?=.*[a-zA-Z]+)(?=.*[0-9]+)(?=.*[`~!@@#$%^&*|₩₩₩'₩";:₩/?]+).{8,20}/
-        if(!reg.test(ele.value)){
-            err.innerHTML = '비밀번호는 대문자, 특수문자를 포함하여 8자 이상 입력해야 합니다.'
-        }
-    }else if(ele == inputs.password_ck){
-        if(inputs.password.value != inputs.password_ck.value){
-            err.innerHTML = '비밀번호를 다시 입력해주세요.'
-        }
-    }
-    ele.parentNode.style.border = '1px solid #ddd';
-}
-<<<<<<< HEAD
-
-window.onload =_=>{
-    inputs.email.addEventListener('input', () => showErase(inputs.email))
-    inputs.nickname.addEventListener('input', () => showErase(inputs.nickname))
-    inputs.password.addEventListener('input', () => showErase(inputs.password))
-    inputs.password_ck.addEventListener('input', () => showErase(inputs.password_ck))
-    
-    inputs.email.addEventListener('focusout', () => inputChk(inputs.email))
-    inputs.nickname.addEventListener('focusout', () => inputChk(inputs.nickname))
-    inputs.password.addEventListener('focusout', () => inputChk(inputs.password))
-    inputs.password_ck.addEventListener('focusout', () => inputChk(inputs.password_ck))
-
-    inputs.email.addEventListener('focus', () => focus(inputs.email))
-    inputs.nickname.addEventListener('focus', () => focus(inputs.nickname))
-    inputs.password.addEventListener('focus', () => focus(inputs.password))
-    inputs.password_ck.addEventListener('focus', () => focus(inputs.password_ck))
-}
-=======
->>>>>>> 0ff475c4065ff241b7854cbea75919149aca9f75
+window.onload = _ => {
+	const $inputs = [...document.querySelectorAll("form > div > input")];
+	
+    document.forms[0].addEventListener("submit", event => {
+        event.preventDefault();
+		
+		if(inputValidateCheck) event.target.submit();
+    });
+    $inputs.forEach(item => {
+        item.addEventListener("focus", ({ target }) => {
+            target.parentNode.style.border = "1px solid black";
+        });
+    });
+    $inputs.forEach(item => {
+        item.addEventListener("focusout", ({ target }) => {
+            inputValidateCheck(target);
+			
+			target.parentNode.style.border = "#ddd";
+        });
+    });
+};
