@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <title>Document</title>
 </head>
@@ -14,16 +14,23 @@
                 <img src='' style='width:150px; height:72px'>
             </a>
             <ul class='nav'>
-                <li><a href='#'>로그인</a></li>
+                <li><a href='../Auth/Login.html'>로그인</a></li>
             </ul>
         </div>
     </header>
     <section id='content' class='gradient_border_bottom'>
-        <div class='container'>
+        <div class='container main'>
             <div class='categoryInfo'>
-                
+                <div class='categorySelect'>
+                    <div class='categoryItems'>
+                        <div class='categoryItem'>아이템1</div>
+                        <div class='categoryItem'>아이템2</div>
+                        <div class='categoryItem'>아이템3</div>
+                        <div class='categoryItem'>아이템4</div>
+                    </div>
+                </div>
             </div>
-            <div class='categorySelect'>
+            <div class='stackSelect'>
                 <select name='Stack' id='stackSelection'>
                     <option value='javaScript' selected>select</option>
                     <option value='c#'>c#</option>
@@ -42,12 +49,28 @@
                     <div class='gradient_border_bottom'></div>
                 </div>
             </div>
+            <div class='stackInfo'>
+                <div class='stackDetail'>
+                    <div class='stackItem' style='background-color:var(--bg1)'>
+                        아이템1 소개
+                    </div>
+                    <div class='stackItem' style='background-color:var(--bg2)'>
+                        아이템2 소개
+                    </div>
+                    <div class='stackItem' style='background-color:var(--bg3)'>
+                        아이템3 소개
+                    </div>
+                    <div class='stackItem' style='background-color:var(--bg4)'>
+                        아이템4 소개
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <footer>
         <div class='footer'>
         </div>
     </footer>
-    <script src="js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
