@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 const port = 3000;
 const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+const moment = require("moment")
 
 const config = require('./config/key.js')// api키 라던지 깃허브에 노출 되면 안되는 값들
 
@@ -39,8 +41,27 @@ app.post('/users/register',(req,res) => {// register function
 })
 
 app.post('/users/login',(req,res)=>{// login function 
-	
-})
+	User.findOne({email:req.body.email},(err,user)=>{
+		if(!user) return res.json({
+			loginSuccess:false,
+			message:'로그인에 실패했습니다. 이메일을 찾을 수 없습니다.'
+		})
+		user.comparePassword(req.body.password,(err,isMatch)=>{
+			if(!isMatch) return res.json({ loginSuccess: false, message: "Wrong password" })
+			
+			user.generateToken((err, user) => {
+                if (err) return res.status(400).send(err);
+                res.cookie("w_authExp", user.tokenExp);
+                res
+					.cookie("w_auth", user.token)
+                    .status(200)
+                    .json({
+                        loginSuccess: true, userId: user._id
+                    });
+            });
+        });
+    });
+});
 
 app.listen(port, _ => {
 	console.log("express server open, port : " + port);
