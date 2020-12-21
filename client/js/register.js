@@ -1,55 +1,74 @@
-const inputValidateCheck = target => {
-	const $err = target.parentNode.children[2];
-    $err.innerHTML = "";
-
-    if(target.name === "email") {
-        const reg = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
-        
-        if (!reg.test(target.value)) {
-            return $err.innerHTML = "이메일을 잘못 입력했습니다.";
-        };
-    };
-    if(target.name === "nickname") {
-        const reg = /^[가-힣|a-z|A-Z|0-9|\*]{2,12}$/;
-
-        if(!reg.test(target.value)) {
-            return $err.innerHTML = "닉네임을 잘못 입력했습니다.";
-        };
-    };
-    if(target.name === "password") {
-        const reg = /(?=.*[a-zA-Z]+)(?=.*[0-9]+).{8,20}/;
-
-        if (!reg.test(target.value)) {
-            return $err.innerHTML = "비밀번호는 대문자 포함하여 8자 이상 입력해야 합니다.";
-        };
-    };
-    if(target.name === "password_ck") {
-        if(document.forms[0].password.value !== target.value) {
-            return $err.innerHTML = "비밀번호를 일치하지 않습니다.";
-        };
-    };
-
-    return true;
+const inputs = {
+    email : document.querySelector('input[name=email]'),
+    nickname : document.querySelector('input[name=nickname]'),
+    password : document.querySelector('input[name=password]'),
+    password_ck : document.querySelector('input[name=password_ck]'),
 };
 
-window.onload = _ => {
-	const $inputs = [...document.querySelectorAll("form > div > input")];
+const erase = element => {
+    element.parentNode.children[0].value = "";
+    element.parentNode.children[1].style.display = "none";
+    element.parentNode.children[0].focus();
+    element.parentNode.children[2].innerHTML = "";
+};
+
+const showErase = element => {
+    element.parentNode.children[2].innerHTML = '';
 	
-    document.forms[0].addEventListener("submit", event => {
-        event.preventDefault();
+    if(element.value.length > 0)
+		return element.parentNode.children[1].style.display = "block";
+	
+	return element.parentNode.children[1].style.display = "none";
+};
 
-        if(inputValidateCheck) event.target.submit();
-    });
-    $inputs.forEach(item => {
-        item.addEventListener("focus", ({ target }) => {
-            target.parentNode.style.border = "1px solid black";
-        });
-    });
-    $inputs.forEach(item => {
-        item.addEventListener("focusout", ({ target }) => {
-            inputValidateCheck(target);
+const focus = ele => {
+    ele.parentNode.style.border = '1px solid #74C69D';
+};
 
-            target.parentNode.style.border = "#ddd";
-        });
-    });
+const inputChk = element => {
+    const $err = element.parentNode.children[2];
+    $err.innerHTML = "";
+	
+    if(element === inputs.email){
+        const reg = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
+		
+        if(!reg.test(element.value))
+            return $err.innerHTML = "이메일을 잘못 입력했습니다.";
+    };
+	if(element === inputs.nickname){
+        const reg = /^[가-힣|a-z|A-Z|0-9|\*]{2,12}$/;
+		
+        if(!reg.test(element.value))
+            return $err.innerHTML = "닉네임을 잘못 입력했습니다.";
+    };
+	if(element === inputs.password){
+        const reg = /(?=.*[a-zA-Z]+)(?=.*[0-9]+)(?=.*[`~!@@#$%^&*|₩₩₩'₩";:₩/?]+).{8,20}/;
+		
+        if(!reg.test(element.value))
+			return $err.innerHTML = "비밀번호는 대문자, 특수문자를 포함하여 8자 이상 입력해야 합니다.";
+    };
+	if(element == inputs.password_ck){
+        if(inputs.password.value !== inputs.password_ck.value)
+			return $err.innerHTML = "비밀번호가 일치하지 않습니다.";
+    };
+	
+    element.parentNode.style.border = "1px solid #ddd";
+	return $err.innerHTML = "";
+};
+
+window.onload = () => {
+    inputs.email.addEventListener('input', () => showErase(inputs.email))
+    inputs.nickname.addEventListener('input', () => showErase(inputs.nickname))
+    inputs.password.addEventListener('input', () => showErase(inputs.password))
+    inputs.password_ck.addEventListener('input', () => showErase(inputs.password_ck))
+    
+    inputs.email.addEventListener('focusout', () => inputChk(inputs.email))
+    inputs.nickname.addEventListener('focusout', () => inputChk(inputs.nickname))
+    inputs.password.addEventListener('focusout', () => inputChk(inputs.password))
+    inputs.password_ck.addEventListener('focusout', () => inputChk(inputs.password_ck))
+
+    inputs.email.addEventListener('focus', () => focus(inputs.email))
+    inputs.nickname.addEventListener('focus', () => focus(inputs.nickname))
+    inputs.password.addEventListener('focus', () => focus(inputs.password))
+    inputs.password_ck.addEventListener('focus', () => focus(inputs.password_ck))
 };
