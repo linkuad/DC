@@ -3,6 +3,7 @@ const inputs = {
     nickname : document.querySelector('input[name=nickname]'),
     password : document.querySelector('input[name=password]'),
     password_ck : document.querySelector('input[name=password_ck]'),
+	phone : document.querySelector('input[name=phone]'),
 };
 
 const erase = element => {
@@ -51,6 +52,12 @@ const inputChk = element => {
         if(inputs.password.value !== inputs.password_ck.value)
 			return $err.innerHTML = "비밀번호가 일치하지 않습니다.";
     };
+	if(element === inputs.phone){
+		const reg = /^.(?=^.{8,15}$)(?=.\d)(?=.[a-zA-Z])(?=.[!@#$%^&+=]).*$/;
+		
+		if(!reg.test(element.value))
+        	return $err.innerHTML = "전화번호를 잘못 입력했습니다. - 없이 입력해주세요.";
+	}
 	
     element.parentNode.style.border = "1px solid #ddd";
 	return $err.innerHTML = "";
@@ -61,14 +68,17 @@ window.onload = () => {
     inputs.nickname.addEventListener('input', () => showErase(inputs.nickname))
     inputs.password.addEventListener('input', () => showErase(inputs.password))
     inputs.password_ck.addEventListener('input', () => showErase(inputs.password_ck))
+	inputs.phone.addEventListener('input', () => showErase(inputs.phone))
     
     inputs.email.addEventListener('focusout', () => inputChk(inputs.email))
     inputs.nickname.addEventListener('focusout', () => inputChk(inputs.nickname))
     inputs.password.addEventListener('focusout', () => inputChk(inputs.password))
     inputs.password_ck.addEventListener('focusout', () => inputChk(inputs.password_ck))
+	inputs.phone.addEventListener('focusout', () => inputChk(inputs.phone))
 
     inputs.email.addEventListener('focus', () => focus(inputs.email))
     inputs.nickname.addEventListener('focus', () => focus(inputs.nickname))
     inputs.password.addEventListener('focus', () => focus(inputs.password))
     inputs.password_ck.addEventListener('focus', () => focus(inputs.password_ck))
+    inputs.phone.addEventListener('focus', () => focus(inputs.phone))
 };
