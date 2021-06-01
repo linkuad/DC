@@ -34,15 +34,15 @@ app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname + "/client/index.html"));
 });
 
-app.post('/users/register', (req,res) => {// register function
-	const user = new User(req.body);
+// app.post('/users/register', (req,res) => {// register function
+// 	const user = new User(req.body);
 	
-	user.save((err,doc) => {
-		if(err) return res.json({success: false, err});
+// 	user.save((err,doc) => {
+// 		if(err) return res.json({success: false, err});
 		
-		return res.status(200).json({success: true, doc})//save실패하면 에러를 퉤 성공하면 정보를 퉤
-	});
-});
+// 		return res.status(200).json({success: true, doc})//save실패하면 에러를 퉤 성공하면 정보를 퉤
+// 	});
+// });
 
 app.post('/users/login', (req, res) => {// login function 
 	User.findOne({email: req.body.email}, (err, user) => {
