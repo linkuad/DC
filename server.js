@@ -1,13 +1,12 @@
 const express = require("express");
 const app = express();
 const concat = require("concat-stream");
-const { User } = require("./models/User.js");
 const mongoose = require("mongoose");
 const path = require("path");
 const port = 3000;
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-const moment = require("moment")
+const moment = require("moment");
 
 const config = require('./config/key.js')// api키 라던지 깃허브에 노출 되면 안되는 값들
 

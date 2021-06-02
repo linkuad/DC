@@ -41,11 +41,11 @@ router.post('/login', (req, res) => {// login function
                 if (err) return res.status(400).send(err);
 				
                 res.cookie("w_authExp", user.tokenExp);
-                res
-					.cookie("w_auth", user.token)
+                res 
+                    .cookie("w_auth", user.token)
                     .status(200)
                     .json({
-                        loginSuccess: true, userId: user._id
+                        loginSuccess: true, userId: user._id, Token:user.token
                     });
             });
         });
