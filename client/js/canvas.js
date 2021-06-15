@@ -5,7 +5,7 @@ class Main{
     constructor(){ 
         this.canvas = document.createElement('canvas');
         document.getElementById('content').appendChild(this.canvas);
-        this.ctx = this.canvas.getContext('2d');
+        this.ctx = this.canvas.getContext('2d')
         window.addEventListener('resize', this.resize.bind(this));
         this.resize();
         window.requestAnimationFrame(this.animate.bind(this));
